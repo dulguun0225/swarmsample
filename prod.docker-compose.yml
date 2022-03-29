@@ -1,0 +1,23 @@
+version: '3.8'
+
+networks:
+  swarm-sample:
+    driver: bridge
+
+services:
+  service1:
+    container_name: service1
+    image: service1
+    networks:
+      - swarm-sample
+    environment:
+      PORT: 80
+    ports:
+      - 5000:80
+  service2:
+    container_name: service2
+    image: service2
+    networks:
+      - swarm-sample
+    environment:
+      PORT: 80
